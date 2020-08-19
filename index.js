@@ -23,11 +23,18 @@ canvas.addEventListener('mousedown', e => {
   draw = true;
 
   if (document.getElementById('black').checked) {
+    ctx.lineWidth = 1;
     color = 'black';
   } else if (document.getElementById('blue').checked) {
+    ctx.lineWidth = 1;
     color = 'blue';
   } else if (document.getElementById('red').checked) {
+    ctx.lineWidth = 1;
     color = 'red';
+  } else if (document.getElementById('eraser').checked) {
+    ctx.lineWidth = 5;
+    document.getElementById('eraser').checked = true;
+    color = 'white';
   }
   ctx.strokeStyle = color;
 });
@@ -68,6 +75,8 @@ document.addEventListener('keydown', (event) => {
     case 69: // button E
       ctx.strokeStyle = 'white';
       ctx.lineWidth = 5;
+      document.getElementById('eraser').checked = true;
+      state = "pencil";
       break;
     case 80: // button P
       ctx.strokeStyle = color;
